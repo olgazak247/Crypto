@@ -1,0 +1,49 @@
+.orderBook{      
+    height: 95%;
+    background: rgb(6, 13, 19);
+    box-shadow: 1px 0px 7px rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 15%;    
+    width: 15%;
+    max-width: 15%;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
+    margin-top: 56px;    
+    margin-bottom: 200px;      
+}
+
+.title{
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 46px;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0px 28px;
+    border-bottom: 1px solid rgb(38, 45, 52);
+    background: rgb(18, 29, 39);
+}
+
+.subtitle{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    flex-shrink: 0;
+    height: 31px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    border-top: none;
+    border-bottom: 1px solid rgb(38, 45, 52);
+    background: rgb(7, 15, 21);
+}
+
+.prices{
+    font-size: 10px;
+    font-weight: bold;
+    opacity: 1;  
+    text-align: right;
+}
