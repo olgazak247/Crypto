@@ -18,19 +18,14 @@ price chart:
 	+ refresh chart 
 	
 volume chart:
-	- Dictionary<string, IEnumerable<Tuple<DateTime, decimal>>>
-	- refresh chart 
-	
-- add order book
-- review UI as coinbasepro
-	- colors
-	- sections
-	- data
-	- realtime
+	+ Dictionary<string, IEnumerable<Tuple<DateTime, decimal>>>
+	+ refresh chart 
 
-chart
-- highchart
-- rechart
++ review UI as coinbasepro
+	+ colors
+	+ sections
+	+ data
+	+ realtime
 
 technologies:
 	C#
@@ -44,4 +39,9 @@ technologies:
 	ReactJS
 	Redux
 	Unit tests with Enzyme and Jest
+	react-chartjs-2 library 
+	DevExtreme React Components
 	Visual Studio Code
+	
+	
+	

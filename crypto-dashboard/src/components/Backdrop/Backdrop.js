@@ -230,6 +230,7 @@ const backdrop = props => {
   let diffPrices = parseFloat(props.content.difference);
   let volume = props.content.volume != null ? parseFloat(props.content.volume.replace(',', '')) : 0;  
   let price = props.content.price != null ? parseFloat(props.content.price.replace(',', '')) : 0;
+ 
   let customizeText = ({ valueText }) => {
     return `${valueText} %`;
   }
@@ -266,7 +267,7 @@ const backdrop = props => {
     interval = 0.25;
   }else{
     baseVolume = parseFloat((parseFloat((maxVolume - minVolume) / 2) + parseFloat(minVolume)).toFixed(3));
-    interval = parseFloat((parseFloat((maxVolume - minVolume) / 4)).toFixed(3));
+    interval = parseFloat((parseFloat((maxVolume - minVolume) / 5)).toFixed(3));
   }
   if(maxPrice === minPrice){
     minPrice = 0;
@@ -275,7 +276,7 @@ const backdrop = props => {
     intervalPrice = 0.25;
   }else{
     basePrice = parseFloat((parseFloat((maxPrice - minPrice) / 2) + parseFloat(minPrice)).toFixed(2));
-    intervalPrice = parseFloat((parseFloat((maxPrice - minPrice) / 4)).toFixed(2));
+    intervalPrice = parseFloat((parseFloat((maxPrice - minPrice) / 5)).toFixed(2));
   }
             
   return(      
@@ -316,8 +317,8 @@ const backdrop = props => {
               <Border color="black"/>        
             </Tooltip>      
             <RangeContainer>
-              <Range startValue={minPrice} endValue={basePrice} color='rgb(229, 85, 65)' />          
-              <Range startValue={basePrice} endValue={maxPrice} color='rgb(0, 156, 75)' />
+              <Range startValue={minPrice} endValue={openPrice} color='rgb(229, 85, 65)' />          
+              <Range startValue={openPrice} endValue={maxPrice} color='rgb(0, 156, 75)' />
             </RangeContainer>        
             <Title text={titlePrice} >
               <Font size={14} color="white" />

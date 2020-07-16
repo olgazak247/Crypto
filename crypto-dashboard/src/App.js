@@ -31,11 +31,9 @@ const initialState = {
   currentAsks: [],
   currentBids: [],
   prices: [{title: "BTC-GBP", pricesChart: []}, {title: "BTC-EUR", pricesChart: []}, {title: "BTC-USD", pricesChart: []}, {title: "ETH-GBP", pricesChart: []}, {title: "ETH-EUR", pricesChart: []}, {title: "ETH-USD", pricesChart: []}, {title: "LTC-GBP", pricesChart: []}, {title: "LTC-EUR", pricesChart: []}, {title: "LTC-USD", pricesChart: []}],
-  // volumes: [{title: "BTC-GBP", volumeChart: []}, {title: "BTC-EUR", volumeChart: []}, {title: "BTC-USD", volumeChart: []}, {title: "ETH-GBP", volumeChart: []}, {title: "ETH-EUR", volumeChart: []}, {title: "ETH-USD", volumeChart: []}, {title: "LTC-GBP", volumeChart: []}, {title: "LTC-EUR", volumeChart: []}, {title: "LTC-USD", volumeChart: []}],
 };
 
 class App extends Component {
-
   constructor(props){    
     super(props); 
 
@@ -44,7 +42,7 @@ class App extends Component {
     }    
   }
   
-  fetch(){
+  fetch = () => {
     this.props.fetchCurrencies();          
   }
       
@@ -72,22 +70,22 @@ class App extends Component {
     this.setState({registerFormValidated: form})
   }
 
-  handleShow =() => {
+  handleShow = () => {
     this.setShow(true);
   }
 
-  handleClose = ()=> {
+  handleClose = () => {
     if((this.state.username != null && this.state.username.length === 0) || (this.state.password != null && this.state.password.length === 0))  {
       this.setState({username: '', password: ''});      
     }
     this.setShow(false);
   }
 
-  handleShowAlert =() => {
+  handleShowAlert = () => {
     this.setShowAlert(true);
   }
 
-  handleCloseAlert = ()=> {
+  handleCloseAlert = () => {
     this.setShowAlert(false);
   }
 
@@ -99,11 +97,11 @@ class App extends Component {
     this.setShowLogout(true);
   }
 
-  handleCloseLogout = ()=> {
+  handleCloseLogout = () => {
     this.setShowLogout(false);
   }
 
-  handleCloseRegister = ()=> {
+  handleCloseRegister = () => {
     if((this.state.username != null && this.state.username.length === 0) || (this.state.password != null && this.state.password.length === 0) || (this.state.confirmPassword != null && this.state.confirmPassword.length === 0))  {
       this.setState({username: ''});
       this.setState({password: ''});
@@ -113,7 +111,7 @@ class App extends Component {
     this.setShowRegister(false);
   }
 
-  setUsername=(e) => {
+  setUsername = (e) => {
     this.setState({username: e.target.value});
   }
 
@@ -121,7 +119,7 @@ class App extends Component {
     this.setState({password: e.target.value});
   }
 
-  handlerSetConfirmPassword = (e) =>{
+  handlerSetConfirmPassword = (e) => {
     this.setState({confirmPassword: e.target.value});
     if(this.state.confirmPassword !== this.state.password){
       this.setState({isInvalidConfirmPassword: true});
@@ -130,8 +128,7 @@ class App extends Component {
     }
   }
   
-  onNotifReceived =(message) => {        
-    // console.log("Ticker: " + message);
+  onNotifReceived = (message) => {            
     let jMessage = JSON.parse(message);
     let lstCurrency = this.state.lstCurrency;    
     for(var i = 0; i < lstCurrency.length; i++){
@@ -172,8 +169,7 @@ class App extends Component {
     }              
   } 
       
-  connectToHub =() => {
-    //create the connection instance
+  connectToHub = () => {    
     const signalRConnection = new signalR.HubConnectionBuilder()      
       .withUrl("https://localhost:44364/messageHub")    
       .withAutomaticReconnect()
@@ -186,23 +182,23 @@ class App extends Component {
       .catch(err => console.error('SignalR Connection Error: ', err));                      
   }
   
-  getMessages(){
+  getMessages = () => { 
     this.props.fetchMessages();     
   }  
   
-  componentDidMount(){
+  componentDidMount = () => {
     this.fetch();               
     this.connectToHub();                   
   };
 
-  componentDidUpdate(prevProps, prevState){                              
+  componentDidUpdate = (prevProps, prevState) => {                              
     if(this.props.lstCurrency.length > 0 && prevProps.lstCurrency !== this.props.lstCurrency){
       this.getCurrencies();
     }
     this.getMessages();    
   }
 
-  numberWithCommas = (x) =>{
+  numberWithCommas = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
@@ -298,7 +294,7 @@ class App extends Component {
     }
   }
 
-  handleRegisterSubmit=(event) => {   
+  handleRegisterSubmit= (event) => {   
     event.preventDefault();     
     const form = event.currentTarget;
     if (form.checkValidity() === false || (this.state.password !== null && this.state.confirmPassword !== null && this.state.password !== this.state.confirmPassword)) {            
@@ -342,7 +338,7 @@ class App extends Component {
     }
   }
 
-  handlerLogout=() => {
+  handlerLogout= () => {
     this.handleCloseLogout();
     this.setState({username: ''});
     this.setState({password: ''});
@@ -352,7 +348,7 @@ class App extends Component {
     this.setState({search: event.target.value.substr(0,20)});
   }
 
-  render() {         
+  render = () => {         
     const configBackdrop = {
       show: this.state.sideDrawerOpen,
       content: this.state.currentItem,

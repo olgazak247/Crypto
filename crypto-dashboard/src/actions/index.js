@@ -50,7 +50,7 @@ export const fetchAddUser = (user) => async (dispatch) => {
     .catch(err => {});     
 }
 
-// export const getSiganlR = () => () => {
+// export const getSiganlR = () => async (dispatch) => {
 //     const signalRConnection = new signalR.HubConnectionBuilder()      
 //       .withUrl("https://localhost:44364/messageHub")    
 //       .withAutomaticReconnect()
