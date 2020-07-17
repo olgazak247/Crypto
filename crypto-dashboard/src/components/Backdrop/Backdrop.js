@@ -303,7 +303,7 @@ const backdrop = props => {
             <Title text={title} >
               <Font size={14} color="white" />
             </Title>
-            <Animation enabled={true} />
+            <Animation enabled={false} />
           </CircularGauge>
         </div> 
         <div className="col-md-4"> 
@@ -317,13 +317,13 @@ const backdrop = props => {
               <Border color="black"/>        
             </Tooltip>      
             <RangeContainer>
-              <Range startValue={minPrice} endValue={openPrice} color='rgb(229, 85, 65)' />          
-              <Range startValue={openPrice} endValue={maxPrice} color='rgb(0, 156, 75)' />
+              <Range startValue={minPrice} endValue={basePrice} color='rgb(229, 85, 65)' />          
+              <Range startValue={basePrice} endValue={maxPrice} color='rgb(0, 156, 75)' />
             </RangeContainer>        
             <Title text={titlePrice} >
               <Font size={14} color="white" />
             </Title>
-            <Animation enabled={true} />
+            <Animation enabled={false} />
           </CircularGauge>
         </div> 
         <div className="col-md-4"> 
@@ -343,7 +343,7 @@ const backdrop = props => {
             <Title text={titleVolume} >
               <Font size={14} color="white" />
             </Title>
-            <Animation enabled={true} />
+            <Animation enabled={false} />
           </CircularGauge>
         </div>
       </div> 
