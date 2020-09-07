@@ -1,10 +1,9 @@
-﻿
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace WebSocket.Services
 {
     public interface ICoinbaseService
     {
-        Task ConnectAsync(IConnectToQueue rabbit);
+        Task ConnectAsync(IConnectToQueue connection);
     }
 }

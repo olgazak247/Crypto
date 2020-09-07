@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using WebSocket.Services;
 
@@ -11,9 +10,9 @@ namespace WebSocket
         {
             IConnectToQueue rabbit = new ConnectToQueue();
             ICoinbaseService service = new CoinbaseService();
-            //Console.WriteLine("Bus was started");
+            Console.WriteLine("Bus was started");
             await service.ConnectAsync(rabbit);
-            //Console.WriteLine("Bus was published");
+            Console.WriteLine("Bus was published");
             Console.ReadKey();
         }        
     }

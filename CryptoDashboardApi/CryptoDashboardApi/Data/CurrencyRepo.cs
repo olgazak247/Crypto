@@ -3,30 +3,30 @@ using CryptoDashboardApi.Rest_Api;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 
 namespace CryptoDashboardApi.Data
 {
     public class CurrencyRepo : ICurrencyRepo
     {
         IProducts _products;
-        IDictionary<string, string> _lstCurrency;
+        IDictionary<string, string> _dictCurrencies = new Dictionary<string, string>
+        {
+            { "BTC-GBP", Constants.BITCOIN },
+            { "BTC-EUR", Constants.BITCOIN },
+            { "BTC-USD", Constants.BITCOIN },
+            { "ETH-GBP", Constants.ETHEREUM },
+            { "ETH-EUR", Constants.ETHEREUM },
+            { "ETH-USD", Constants.ETHEREUM },
+            { "LTC-GBP", Constants.LITECOIN },
+            { "LTC-EUR", Constants.LITECOIN },
+            { "LTC-USD", Constants.LITECOIN }
+        };
 
         public CurrencyRepo(IProducts products)
         {
             _products = products;
-            _lstCurrency = new Dictionary<string, string>
-            {
-                {"BTC-GBP", "Bitcoin" },
-                {"BTC-EUR", "Bitcoin" },
-                {"BTC-USD", "Bitcoin" },
-                {"ETH-GBP", "Ethereum" },
-                {"ETH-EUR", "Ethereum" },
-                {"ETH-USD", "Ethereum" },
-                {"LTC-GBP", "Litecoin" },
-                {"LTC-EUR", "Litecoin" },
-                {"LTC-USD", "Litecoin" }
-            };
+            //ConvertToCurrencyObject(null);
+            
         }
 
         private IEnumerable<CurrencyObject> ConvertToCurrencyObject(IEnumerable<DetailProduct> products)
@@ -36,7 +36,7 @@ namespace CryptoDashboardApi.Data
             {
                 if (prod != null)
                 {
-                    var cur = _lstCurrency.FirstOrDefault(k => k.Key == prod.id);
+                    var cur = _dictCurrencies.FirstOrDefault(k => k.Key == prod.id);
                     double.TryParse(prod.bid, out double bid);
                     double.TryParse(prod.ask, out double ask);
                     double.TryParse(prod.volume, out double volume);
@@ -72,7 +72,7 @@ namespace CryptoDashboardApi.Data
         private IEnumerable<DetailProduct> CallProducts()
         {
             var result = new List<DetailProduct>();            
-            foreach (var currency in _lstCurrency)
+            foreach (var currency in _dictCurrencies)
             {
                 var res = _products.GetDetailProduct(currency.Key).Result;                
                 var stats = _products.GetStats(currency.Key).Result;

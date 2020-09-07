@@ -12,7 +12,7 @@ namespace CryptoDashboardApi.Controllers
 
         public UserController(IUserRepo userRepo)
         {
-            _userRepo = userRepo;            
+            _userRepo = userRepo;
         }
         
         [HttpPost]

@@ -23,7 +23,7 @@ namespace Received
             };
             channel.BasicConsume(queue: "BTC-EUR", autoAck: true, consumer: consumer);
 
-            Console.WriteLine(" Press [enter] to exit.");
+            Console.WriteLine("Press [enter] to exit.");
             Console.ReadLine();
         }
     }

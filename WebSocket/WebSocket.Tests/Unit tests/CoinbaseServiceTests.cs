@@ -13,13 +13,13 @@ namespace WebSocket.Tests
         public CoinbaseServiceTests()
         {
             _serviceQueue = new Mock<IConnectToQueue>();
-            _coinbaseService = new CoinbaseService();
+            _coinbaseService = new CoinbaseService();            
         }
 
         [Fact]
         public async Task ConnectAsyncTest()
         {
-            var result = _coinbaseService.ConnectAsync(_serviceQueue.Object);
+            var result =  _coinbaseService.ConnectAsync(_serviceQueue.Object);
             await Task.CompletedTask;
 
             Assert.NotNull(result);

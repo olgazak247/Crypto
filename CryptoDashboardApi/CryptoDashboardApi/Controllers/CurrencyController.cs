@@ -11,7 +11,7 @@ namespace CryptoDashboardApi.Controllers
     {
         private readonly ICurrencyRepo _repository;        
 
-       public CurrencyController( ICurrencyRepo repo)
+       public CurrencyController(ICurrencyRepo repo)
         {
             _repository = repo;            
         }

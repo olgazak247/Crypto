@@ -7,7 +7,7 @@ namespace CryptoDashboardApi.Controllers
     [ApiController]
     public class MessagesController : ControllerBase
     {
-        private IMessagesRepo _messageRepo;
+        private readonly IMessagesRepo _messageRepo;
         
         public MessagesController(IMessagesRepo messageRepo)
         {
