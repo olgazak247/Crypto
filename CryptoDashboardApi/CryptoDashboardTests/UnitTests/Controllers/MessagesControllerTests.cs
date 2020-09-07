@@ -8,8 +8,8 @@ namespace CryptoDashboardTests.UnitTests.Controllers
 {
     public class MessagesControllerTests
     {
-        MessagesController _controller;
-        Mock<IMessagesRepo> _repo;
+        private readonly MessagesController _controller;
+        private readonly Mock<IMessagesRepo> _repo;
 
         public MessagesControllerTests()
         {

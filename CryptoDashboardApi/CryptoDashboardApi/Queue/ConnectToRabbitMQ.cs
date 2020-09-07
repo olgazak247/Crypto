@@ -12,25 +12,12 @@ namespace CryptoDashboardApi.Queue
 {
     public class ConnectToRabbitMQ : IConnectToRabbitMQ
     {
-        MessageHub _hub;
-        IDictionary<string, string> _lstCurrency;
-        ConnectionFactory _factory { get; set; }
+        private readonly MessageHub _hub;        
+        private ConnectionFactory _factory { get; set; }
 
         public ConnectToRabbitMQ(MessageHub hub)
         {
-            _hub = hub;
-            _lstCurrency = new Dictionary<string, string>
-                {
-                    { "BTC-GBP", "Bitcoin" },
-                    { "BTC-EUR", "Bitcoin" },
-                    { "BTC-USD", "Bitcoin" },
-                    { "ETH-GBP", "Ethereum" },
-                    { "ETH-EUR", "Ethereum" },
-                    { "ETH-USD", "Ethereum" },
-                    { "LTC-GBP", "Litecoin" },
-                    { "LTC-EUR", "Litecoin" },
-                    { "LTC-USD", "Litecoin" }
-                };
+            _hub = hub;           
         }
 
         public async Task ConnectToQueue()
@@ -44,7 +31,7 @@ namespace CryptoDashboardApi.Queue
 
             using (var connection = _factory.CreateConnection())
             {
-                foreach (var currency in _lstCurrency)
+                foreach (var currency in Constants.DictCurrencies)
                 {
                     using (var channel = connection.CreateModel())
                     {

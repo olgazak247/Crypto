@@ -6,59 +6,60 @@ namespace CryptoDashboardTests
 {
     public class CurrencyRepoFake : ICurrencyRepo
     {
-        private readonly List<CurrencyObject> _currencyLst;
+        private readonly List<Currency> _currencyLst;
 
         public CurrencyRepoFake()
         {
-            _currencyLst = new List<CurrencyObject>{
-                new CurrencyObject
+            _currencyLst = new List<Currency>
+            {
+                new Currency
                 {
                     Title = "BTC-USD",
                     Description = "Bitcoin",
-                    Currency = "$",
+                    Symbol = "$",
                     Price = "7,713.05",
                     Difference = "+0.71%",
-                    BID = 8000,
-                    ASK = 7500,
+                    Bid = 8000,
+                    Ask = 7500,
                     Active = true
                 },
-                new CurrencyObject
+                new Currency
                 {
                     Title = "BTC-EUR",
                     Description = "Bitcoin",
-                    Currency = "£",
+                    Symbol = "£",
                     Price = "7,144.05",
                     Difference = "+0.71%",
-                    BID = 8200,
-                    ASK = 7800,
+                    Bid = 8200,
+                    Ask = 7800,
                     Active = false
                 },
-                new CurrencyObject
+                new Currency
                 {
                     Title = "ETC-USD",
                     Description = "Ethereum",
-                    Currency = "$",
+                    Symbol = "$",
                     Price = "212",
                     Difference = "+0.18%",
-                    BID = 220,
-                    ASK = 210,
+                    Bid = 220,
+                    Ask = 210,
                     Active = false
                 },
-                new CurrencyObject
+                new Currency
                 {
                     Title = "ETC-EUR",
                     Description = "Ethereum",
-                    Currency = "£",
+                    Symbol = "£",
                     Price = "220",
                     Difference = "+0.18%",
-                    BID = 240,
-                    ASK = 220,
+                    Bid = 240,
+                    Ask = 220,
                     Active = false
                 }
             };
-    }
+        }
         
-        public IEnumerable<CurrencyObject> GetCurrencyObjects()
+        public IEnumerable<Currency> GetCurrencyObjects()
         {
             return _currencyLst;   
         }

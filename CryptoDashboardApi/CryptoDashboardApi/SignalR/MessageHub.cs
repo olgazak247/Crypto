@@ -4,8 +4,7 @@ using System.Threading.Tasks;
 namespace CryptoDashboardApi.SignalR
 {
     public class MessageHub: Hub
-    {        
-
+    {
         public async Task SendTickerMessages(string message)
         {
             if (Clients != null)

@@ -2,21 +2,21 @@
 {
     public class Product
     {
-        public string id { get; set; }
-        public string base_currency { get; set; }
-        public string quote_currency { get; set; }
-        public string base_min_size { get; set; }
-        public string base_max_size { get; set; }
-        public string quote_increment { get; set; }
-        public string base_increment { get; set; }
-        public string display_name { get; set; }
-        public string min_market_funds { get; set; }
-        public string max_market_funds { get; set; }
-        public bool margin_enabled { get; set; }
-        public bool post_only { get; set; }
-        public bool limit_only { get; set; }
-        public bool cancel_only { get; set; }
-        public string status { get; set; }
-        public string status_message { get; set; }
+        public string Id { get; set; }
+        public string Base_currency { get; set; }
+        public string Quote_currency { get; set; }
+        public string Base_min_size { get; set; }
+        public string Base_max_size { get; set; }
+        public string Quote_increment { get; set; }
+        public string Base_increment { get; set; }
+        public string Display_name { get; set; }
+        public string Min_market_funds { get; set; }
+        public string Max_market_funds { get; set; }
+        public bool Margin_enabled { get; set; }
+        public bool Post_only { get; set; }
+        public bool Limit_only { get; set; }
+        public bool Cancel_only { get; set; }
+        public string Status { get; set; }
+        public string Status_message { get; set; }
     }
 }

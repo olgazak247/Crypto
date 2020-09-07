@@ -8,8 +8,8 @@ namespace CryptoDashboardTests.UnitTests.Data
 {
     public class MessagesRepoTests
     {
-        private Mock<IConnectToRabbitMQ> _connectToRabbit;
-        private IMessagesRepo _messagesRepo;
+        private readonly Mock<IConnectToRabbitMQ> _connectToRabbit;
+        private readonly IMessagesRepo _messagesRepo;
 
         public MessagesRepoTests()
         {

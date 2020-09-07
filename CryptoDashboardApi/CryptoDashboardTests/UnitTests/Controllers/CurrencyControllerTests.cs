@@ -10,8 +10,8 @@ namespace CryptoDashboardTests
 {    
     public class CurrencyControllerTests
     {
-        CurrencyController _controller;
-        ICurrencyRepo _service;
+        private readonly CurrencyController _controller;
+        private readonly ICurrencyRepo _service;
 
         public CurrencyControllerTests()
         {
@@ -36,10 +36,10 @@ namespace CryptoDashboardTests
             var okResult = _controller.GetAll().Result as OkObjectResult;
 
             // Assert
-            var items = Assert.IsType<List<CurrencyObject>>(okResult.Value);
+            var items = Assert.IsType<List<Currency>>(okResult.Value);
             Assert.NotNull(okResult);
             Assert.Equal(4, items.Count());
-            Assert.IsType<List<CurrencyObject>>(okResult.Value);
+            Assert.IsType<List<Currency>>(okResult.Value);
         }
     }
 }

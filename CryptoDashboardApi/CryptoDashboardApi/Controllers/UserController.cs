@@ -16,20 +16,21 @@ namespace CryptoDashboardApi.Controllers
         }
         
         [HttpPost]
-        public ActionResult<User> GetUser([FromBody] User user)
+        public ActionResult<User> GetUser([FromBody] User userCredentials)
         {
-            var userOutput = _userRepo.GetUser(user);
-            if(userOutput == null)
+            var userData = _userRepo.GetUser(userCredentials);
+            if(userData == null)
             {
-                userOutput = new User();
+                userData = new User();
             }
-            return Ok(userOutput);
+
+            return Ok(userData);
         }
         
         [HttpPost]
-        public ActionResult<User> AddUser([FromBody] User user)
+        public ActionResult<User> AddUser([FromBody] User userCredentials)
         {
-            var userOutput = _userRepo.AddUser(user);            
+            var userOutput = _userRepo.AddUser(userCredentials);            
             return Ok(userOutput);
         }
     }

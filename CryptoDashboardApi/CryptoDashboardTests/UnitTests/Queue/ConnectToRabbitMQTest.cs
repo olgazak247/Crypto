@@ -9,18 +9,17 @@ namespace CryptoDashboardTests.UnitTests.Queue
 {
     public class ConnectToRabbitMQTest
     {
-        IConnectToRabbitMQ _connectToRabbitMQ;
-        Mock<MessageHub> _hub;
-        Mock<IHubClients> _mockClients;
-        Mock<IClientProxy> _mockClientProxy;        
+        private readonly IConnectToRabbitMQ _connectToRabbitMQ;
+        private readonly Mock<MessageHub> _hub;
+        private readonly Mock<IHubClients> _mockClients;
+        private readonly Mock<IClientProxy> _mockClientProxy;        
 
         public ConnectToRabbitMQTest()
         {
             _hub = new Mock<MessageHub>();            
             _connectToRabbitMQ = new ConnectToRabbitMQ(_hub.Object);              
             _mockClients = new Mock<IHubClients>();
-            _mockClientProxy = new Mock<IClientProxy>();
-            
+            _mockClientProxy = new Mock<IClientProxy>();            
         }
 
         [Fact]

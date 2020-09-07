@@ -13,7 +13,7 @@ namespace CryptoDashboardApi.Models
         public string time { get; set; }
         public string open { get; set; }
         public string volume { get; set; }
-        public List<Ask> Asks{ get; set; }
-        public List<Bid> Bids{ get; set; }
+        public IEnumerable<Ask> Asks{ get; set; }
+        public IEnumerable<Bid> Bids{ get; set; }
     }
 }

@@ -5,6 +5,6 @@ namespace CryptoDashboardApi.Data
 {
     public interface ICurrencyRepo
     {
-        IEnumerable<CurrencyObject> GetCurrencyObjects();
+        IEnumerable<Currency> GetCurrencyObjects();
     }
 }

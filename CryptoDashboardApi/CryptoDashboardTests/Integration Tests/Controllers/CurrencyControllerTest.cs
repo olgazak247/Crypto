@@ -28,7 +28,7 @@ namespace CryptoDashboardTests.Integration_Tests.Controllers
         {            
             // Act
             var response = await _httpClient.GetAsync("/api/currency/");
-            var result = JsonConvert.DeserializeObject<List<CurrencyObject>>(await response.Content.ReadAsStringAsync());
+            var result = JsonConvert.DeserializeObject<List<Currency>>(await response.Content.ReadAsStringAsync());
 
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);               

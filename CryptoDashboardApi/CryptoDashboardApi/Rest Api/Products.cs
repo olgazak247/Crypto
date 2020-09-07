@@ -1,7 +1,5 @@
 ﻿using CryptoDashboardApi.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text.Json;
@@ -22,7 +20,7 @@ namespace CryptoDashboardApi.Rest_Api
         {
             var request = new HttpRequestMessage(HttpMethod.Get, $"/products/{productId}/ticker");
             var clientFactory = _clientFactory.CreateClient("products");
-            HttpResponseMessage httpResponseMessage = await clientFactory.SendAsync(request);
+            var httpResponseMessage = await clientFactory.SendAsync(request);
             if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 using var responseStream = await httpResponseMessage.Content.ReadAsStreamAsync();
@@ -34,7 +32,7 @@ namespace CryptoDashboardApi.Rest_Api
             }
             else
             {
-                throw new ApplicationException("No connection to server");
+                throw new ApplicationException(Constants.NoConnection);
             }
         }        
 
@@ -42,7 +40,7 @@ namespace CryptoDashboardApi.Rest_Api
         {
             var request = new HttpRequestMessage(HttpMethod.Get, $"/products/{productId}/stats");
             var clientFactory = _clientFactory.CreateClient("products");
-            HttpResponseMessage httpResponseMessage = await clientFactory.SendAsync(request);
+            var httpResponseMessage = await clientFactory.SendAsync(request);
             if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 using var responseStream = await httpResponseMessage.Content.ReadAsStreamAsync();
@@ -52,7 +50,7 @@ namespace CryptoDashboardApi.Rest_Api
             }
             else
             {
-                throw new ApplicationException("No connection to server");
+                throw new ApplicationException(Constants.NoConnection);
             }
         }
     }

@@ -9,8 +9,8 @@ namespace CryptoDashboardTests.UnitTests.Controllers
 {
     public class UserControllerTests
     {
-        UserController _controller;
-        private Mock<IUserRepo> _service;
+        private readonly UserController _controller;
+        private readonly Mock<IUserRepo> _service;
 
         public UserControllerTests()
         {

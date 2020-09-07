@@ -71,7 +71,8 @@ namespace CryptoDashboardApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }            
+            }
+
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
@@ -79,12 +80,6 @@ namespace CryptoDashboardApi
             });
 
             app.UseRouting();
-
-            //app.UseSignalR(routes =>
-            //{
-            //    routes.MapHub<MessageHub>("/messageHub");
-            //});
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
