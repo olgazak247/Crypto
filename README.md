@@ -1,4 +1,4 @@
-# Dashboard to display realtime cryptocurrencies-fiat pairs.
+# Dashboard to display realtime cryptocurrencies-fiat pairs
 This dashboard displays the trends of cryptocurrency-fiat pairs based on Coinbase Pro stream data enhaced with charts, gauges and sparklines. 
 
 ## Implementation
