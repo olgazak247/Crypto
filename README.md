@@ -8,4 +8,4 @@ Implemented with .NET Core websocket service receving data stream from Coinbase 
 ![Crypto Dashboard - Full Stack](https://user-images.githubusercontent.com/60622051/92393198-6b99ba00-f117-11ea-9d68-ea56bd950636.png)
 
 ## Architecture
-![Diagram](https://user-images.githubusercontent.com/60622051/92496571-34e3a280-f1f0-11ea-8b0d-051146db7abe.jpg)
+![Diagram](https://user-images.githubusercontent.com/60622051/92497071-cf43e600-f1f0-11ea-8f02-227a65a31308.jpg)
