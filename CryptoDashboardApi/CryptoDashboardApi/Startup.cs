@@ -52,7 +52,7 @@ namespace CryptoDashboardApi
                     c.BaseAddress = new Uri("https://api.pro.coinbase.com");
                     c.DefaultRequestHeaders.Add("User-Agent", ".NET Framework Test Client");
                     c.DefaultRequestHeaders.Add("Accept", "application/json");
-                });            
+                });                        
         }
 
         private static void ConfigureSwagger(IServiceCollection services)

@@ -10,10 +10,15 @@ namespace CryptoDashboardApi.Rest_Api
     public class Products : IProducts
     {
         private readonly IHttpClientFactory _clientFactory;
+        private readonly JsonSerializerOptions _options;
 
         public Products(IHttpClientFactory httpClientFactory)
         {
             _clientFactory = httpClientFactory;
+            _options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
         }
 
         public async Task<DetailProduct> GetDetailProduct(string productId)
@@ -24,7 +29,7 @@ namespace CryptoDashboardApi.Rest_Api
             if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 using var responseStream = await httpResponseMessage.Content.ReadAsStreamAsync();
-                var data = await JsonSerializer.DeserializeAsync<DetailProduct>(responseStream);
+                var data = await JsonSerializer.DeserializeAsync<DetailProduct>(responseStream, _options);
                 var result = await Task.FromResult<DetailProduct>(data);
                 result.id = productId;
 
@@ -44,7 +49,7 @@ namespace CryptoDashboardApi.Rest_Api
             if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
             {
                 using var responseStream = await httpResponseMessage.Content.ReadAsStreamAsync();
-                var data = await JsonSerializer.DeserializeAsync<Stats>(responseStream);
+                var data = await JsonSerializer.DeserializeAsync<Stats>(responseStream, _options);
                 
                 return await Task.FromResult<Stats>(data);                                
             }
