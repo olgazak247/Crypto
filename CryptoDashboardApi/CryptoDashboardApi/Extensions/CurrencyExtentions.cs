@@ -32,7 +32,7 @@ namespace CryptoDashboardApi.Extensions
             double.TryParse(product.price, out double price);
             DateTime.TryParse(product.time, out DateTime date);
             var difference = (((price - open) / open) * 100).ToSignString();            
-            var ccySymbbol = ccy.Key[4..7];
+            var ccySymbol = ccy.Key[4..7];
 
             return new Currency
             {
@@ -42,9 +42,9 @@ namespace CryptoDashboardApi.Extensions
                 Bid = bid,
                 Ask = ask,
                 Description = ccy.Value,
-                Symbol = dictSymbols.ContainsKey(ccySymbbol)
-                    ? dictSymbols[ccySymbbol]
-                    : ccySymbbol,
+                Symbol = dictSymbols.ContainsKey(ccySymbol)
+                    ? dictSymbols[ccySymbol]
+                    : ccySymbol,
                 Volume = volume.ToString("0.000"),
                 Difference = difference,
                 Open = product.open,
