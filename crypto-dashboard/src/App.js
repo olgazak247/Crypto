@@ -152,7 +152,7 @@ class App extends Component {
         currency.description = lstCurrency[i].description;
         currency.active = lstCurrency[i].active;
         price.active = lstCurrency[i].active;        
-        currency.currency = lstCurrency[i].currency;
+        currency.symbol = lstCurrency[i].symbol;
         currency.open = lstCurrency[i].open;        
         let differencePrice = ((parseFloat(jMessage.price) - parseFloat(currency.open)) / parseFloat(currency.open)) * 100;
         if(differencePrice >= 0){

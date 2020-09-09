@@ -99,7 +99,7 @@ const backdrop = props => {
     return {
       labels: dates,
       datasets: [{
-        label: props.content.description + ' ' + props.content.currency + ' Price and Volume',
+        label: props.content.description + ' ' + props.content.symbol + ' Price and Volume',
         type:'line',
         data: prices,
         fill: true,
@@ -226,7 +226,7 @@ const backdrop = props => {
     
   const title = props.content.description + ' Price Difference %';  
   const titleVolume = props.content.description + ' Volume'; 
-  const titlePrice =  props.content.description + ' ' + props.content.currency + ' Price';
+  const titlePrice =  props.content.description + ' ' + props.content.symbol + ' Price';
   let diffPrices = parseFloat(props.content.difference);
   let volume = props.content.volume != null ? parseFloat(props.content.volume.replace(',', '')) : 0;  
   let price = props.content.price != null ? parseFloat(props.content.price.replace(',', '')) : 0;
@@ -238,7 +238,7 @@ const backdrop = props => {
     return `${valueText}`;
   }
   let customizeTextPrice = ({ valueText }) => {
-    return `${props.content.currency} ${valueText}`;
+    return `${props.content.symbol} ${valueText}`;
   }
   let customizeTooltip = ({ valueText }) => {
     return {
@@ -252,7 +252,7 @@ const backdrop = props => {
   } 
   let customizeTooltipPrice = ({ valueText }) => {
     return {
-      text: `${props.content.currency} ${valueText}`
+      text: `${props.content.symbol} ${valueText}`
     };
   }  
 
@@ -356,7 +356,7 @@ backdrop.propTypes = {
   content: PropTypes.shape({
     description: PropTypes.string,        
     title: PropTypes.string,
-    currency: PropTypes.string,
+    symbol: PropTypes.string,
     price: PropTypes.string,
     difference: PropTypes.string
   })
